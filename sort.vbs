@@ -15,7 +15,7 @@ countFiles = 0
 countDirs = 0
 
 If Not objFSO.FolderExists(srcDir) Or Not objFSO.FolderExists(destDir) Then
-    WScript.Echo "Either source or destination directory is missing."
+    WScript.Echo "Allikas puudub."
     WScript.Quit
 End If
 
@@ -73,9 +73,9 @@ Function LogResults(path)
         
         If numberOfFiles > 0 Then
             WScript.Echo "--------"
-            WScript.Echo numberOfFiles & " file(s)"
+            WScript.Echo numberOfFiles & " fail(id)"
             WScript.Echo Join(fileList.ToArray(), ", ")
-            WScript.Echo "moved to " & subDir.Path
+            WScript.Echo "teisaldati " & subDir.Path
         End If
         
         fileList.Clear()
@@ -88,14 +88,14 @@ LogResults(destDir)
 
 If countFiles = 1 Then
     If countDirs = 1 Then
-        WScript.Echo countFiles & " image sorted into " & countDirs & " directory."
+        WScript.Echo countFiles & " pilt sorteeritud " & countDirs & " kataloogi."
     Else
-        WScript.Echo countFiles & " image sorted into " & countDirs & " directories."
+        WScript.Echo countFiles & " pildid sorteeritud " & countDirs & " kataloogidesse."
     End If
 Else
     If countDirs = 1 Then
-        WScript.Echo countFiles & " images sorted into " & countDirs & " directory."
+        WScript.Echo countFiles & " pilt sorteeritud " & countDirs & " kataloogi."
     Else
-        WScript.Echo countFiles & " images sorted into " & countDirs & " directories."
+        WScript.Echo countFiles & " pildid sorteeritud " & countDirs & " kataloogidesse."
     End If
 End If
